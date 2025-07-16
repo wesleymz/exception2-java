@@ -53,7 +53,16 @@ public class Account {
         this.balance += amount;
     }
 
-    public void withdraw(Double amount) {
+    public String withdraw(Double amount) {
+        if (amount > this.getWithdrawLimit()) {
+            return "The amount exceeds withdraw limit";
+        }
+        if (amount > this.getBalance()) {
+            return "Not enough balance";
+        }
+
         this.balance -= amount;
+
+        return null;
     }
 }
