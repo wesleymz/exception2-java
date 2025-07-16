@@ -55,12 +55,12 @@ public class Account {
         this.balance += amount;
     }
 
-    public void withdraw(Double amount) throws BusinessException {
+    public void withdraw(Double amount) {
         validateWithdraw(amount);
         this.balance -= amount;
     }
 
-    private void validateWithdraw(Double amount) throws BusinessException {
+    private void validateWithdraw(Double amount) {
         if (amount > getWithdrawLimit()) {
             throw new BusinessException("The amount exceeds withdraw limit");
         }
